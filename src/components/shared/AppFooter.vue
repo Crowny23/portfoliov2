@@ -14,22 +14,16 @@ export default {
 				},
 				{
 					id: 2,
-					name: 'Twitter',
-					icon: 'twitter',
-					url: 'https://twitter.com/realstoman',
+					name: 'Instagram',
+					icon: 'instagram',
+					url: 'https://instagram.com/btd.pro.alexandre',
 				},
 				{
 					id: 3,
-					name: 'Medium',
-					icon: 'book',
-					url: 'https://stoman.medium.com',
-				},
-				{
-					id: 4,
-					name: 'Instagram',
-					icon: 'instagram',
-					url: 'https://instagram.com/realstoman',
-				},
+					name: 'Linkedin',
+					icon: 'linkedin',
+					url: 'https://www.linkedin.com/in/btd-alexandre/',
+				}
 			],
 		};
 	},

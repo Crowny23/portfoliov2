@@ -1,6 +1,9 @@
 <script>
 import feather from 'feather-icons';
 import Button from './reusable/Button.vue';
+import emailjs from 'emailjs-com';
+import {ref} from 'vue';
+
 export default {
 	props: ['showModal', 'modal', 'categories'],
 	components: { Button },
@@ -13,7 +16,25 @@ export default {
 	updated() {
 		feather.replace();
 	},
-	methods: {},
+	setup() {
+		const form = ref(null);
+		const inputFieldReset = ref(null);
+
+		const sendMail = async () => {
+			const send = await emailjs.sendForm('service_6w9xt0r', 'template_39g05g2', form.value, 'JlmBVjaC1jgxicIgh');
+			if (send.status == 200) {
+				alert('Votre message a été envoyé !')
+			} else {
+				alert('Votre message n\'a pas été envoyé !')
+			}
+		}
+
+		return{
+			form,
+			inputFieldReset,
+			sendMail
+		}
+	},
 };
 </script>
 
@@ -54,14 +75,14 @@ export default {
 								</button>
 							</div>
 							<div class="modal-body p-5 w-full h-full">
-								<form class="max-w-xl m-4 text-left">
+								<form ref="form" @submit.prevent="sendMail" class="max-w-xl m-4 text-left">
 									<div class="mt-0">
 										<input
 											class="w-full px-5 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
 											id="name"
-											name="name"
+											name="from_name"
 											type="text"
-											required=""
+											required
 											placeholder="Nom"
 											aria-label="Name"
 										/>
@@ -72,7 +93,7 @@ export default {
 											id="email"
 											name="email"
 											type="text"
-											required=""
+											required
 											placeholder="Email"
 											aria-label="Email"
 										/>
@@ -83,13 +104,13 @@ export default {
 											id="subject"
 											name="subject"
 											type="text"
-											required=""
+											required
 											aria-label="Project Category"
 										>
 											<option
 												v-for="category in categories"
 												:key="category.id"
-												:value="category.value"
+												:value="category.name"
 												>{{ category.name }}</option
 											>
 										</select>
@@ -102,6 +123,7 @@ export default {
 											name="message"
 											cols="14"
 											rows="6"
+											required
 											aria-label="Details"
 											placeholder="Description du projet"
 										></textarea>

@@ -20,11 +20,13 @@ export default {
 					id: 2,
 					name: 'boutsadyalexandre@gmail.com',
 					icon: 'mail',
+					link: 'mailto:boutsadyalexandre@gmail.com',
 				},
 				{
 					id: 3,
 					name: '0656676787',
 					icon: 'phone',
+					link: 'tel:0656676787',
 				},
 			],
 		};

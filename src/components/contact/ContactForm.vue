@@ -1,6 +1,30 @@
 <script>
 import Button from '../reusable/Button.vue';
-export default { components: { Button } };
+import emailjs from 'emailjs-com';
+import {ref} from 'vue';
+
+export default { 
+	components: { Button },
+	setup() {
+		const form = ref(null);
+		const inputFieldReset = ref(null);
+
+		const sendMail = async () => {
+			const send = await emailjs.sendForm('service_6w9xt0r', 'template_39g05g2', form.value, 'JlmBVjaC1jgxicIgh');
+			if (send.status == 200) {
+				alert('Votre message a été envoyé !')
+			} else {
+				alert('Votre message n\'a pas été envoyé !')
+			}
+		}
+
+		return{
+			form,
+			inputFieldReset,
+			sendMail
+		}
+	},
+};
 </script>
 
 <template>
@@ -13,7 +37,7 @@ export default { components: { Button } };
 			>
 				Formulaire
 			</p>
-			<form action="#" class="font-general-regular space-y-7">
+			<form ref="form" @submit.prevent="sendMail" class="font-general-regular space-y-7">
 				<div>
 					<label
 						class="block text-lg text-primary-dark dark:text-primary-light mb-2"
@@ -23,11 +47,12 @@ export default { components: { Button } };
 					<input
 						class="w-full px-5 py-2 border border-gray-300 dark:border-primary-dark border-opacity-50 text-primary-dark dark:text-secondary-light bg-ternary-light dark:bg-ternary-dark rounded-md shadow-sm text-md"
 						id="name"
-						name="name"
+						name="from_name"
 						type="text"
-						required=""
+						required
 						placeholder="Votre nom"
 						aria-label="Name"
+						:value="inputFieldReset"
 					/>
 				</div>
 				<div>
@@ -41,9 +66,10 @@ export default { components: { Button } };
 						id="email"
 						name="email"
 						type="text"
-						required=""
+						required
 						placeholder="Votre Email"
 						aria-label="Email"
+						:value="inputFieldReset"
 					/>
 				</div>
 				<div>
@@ -57,9 +83,10 @@ export default { components: { Button } };
 						id="subject"
 						name="subject"
 						type="text"
-						required=""
+						required
 						placeholder="Sujet"
 						aria-label="Subject"
+						:value="inputFieldReset"
 					/>
 				</div>
 
@@ -75,8 +102,10 @@ export default { components: { Button } };
 						name="message"
 						cols="14"
 						rows="6"
+						required
 						aria-label="Message"
 						placeholder="Votre message"
+						:value="inputFieldReset"
 					></textarea>
 				</div>
 

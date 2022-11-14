@@ -12,80 +12,93 @@ export default {
 			langages: [
 				{
 					id: 1,
+					name: 'php',
 					langage:
-							'Php',
+							require('@/assets/images/langages/php.png'),
 					like: 5,
 				},
 				{
 					id: 2,
+					name: 'html',
 					langage:
-							'Html',
+							require('@/assets/images/langages/html-5.png'),
 					like: 3,
 				},
 				{
 					id: 3,
+					name: 'sass',
 					langage:
-							'CSS/SASS',
+							require('@/assets/images/langages/sass.png'),
 					like: 5,
 				},
 				{
 					id: 4,
+					name: 'sql',
 					langage:
-							'SQL',
+							require('@/assets/images/langages/sql-server.png'),
 					like: 3,
 				},
 				{
 					id: 5,
+					name: 'C++',
 					langage:
-							'C++',
+							require('@/assets/images/langages/c.png'),
 					like: 3,
 				},
 				{
 					id: 6,
+					name: 'JavaScript',
 					langage:
-							'JavaScript',
+							require('@/assets/images/langages/js.png'),
 					like: 5,
 				},
 				{
 					id: 7,
+					name: 'Python',
 					langage:
-							'Python',
+							require('@/assets/images/langages/python.png'),
 					like: 4,
 				},
 				{
 					id: 8,
+					name: 'Bootstrap',
 					langage:
-							'Bootstrap',
+							require('@/assets/images/langages/bootstrap.png'),
 					like: 4,
 				},
 				{
 					id: 9,
+					name: 'TailWind',
 					langage:
-							'TailWind',
+							require('@/assets/images/langages/tailwindcss-mark.svg'),
 					like: 4,
 				},
 				{
 					id: 10,
+					name: 'Wordpress',
 					langage:
-							'Wordpress',
+							require('@/assets/images/langages/wordpress.png'),
 					like: 2,
 				},
 				{
 					id: 11,
+					name: 'VueJS',
 					langage:
-							'VueJS',
+							require('@/assets/images/langages/vuejs-seeklogo.com.svg'),
 					like: 5,
 				},
 				{
 					id: 12,
+					name: 'React',
 					langage:
-							'React',
+							require('@/assets/images/langages/react.png'),
 					like: 4,
 				},
 				{
 					id: 13,
+					name: 'Symfony',
 					langage:
-							'Symfony',
+							require('@/assets/images/langages/symfony_black_03.png'),
 					like: 5,
 				},
 			]
@@ -120,14 +133,17 @@ export default {
 				<li 
 					v-for="langage in langages"
 					:key="langage.id"
-					class="flex text-center"
+					class="flex text-center items-center"
 				>
-					{{langage.langage}} 
+						<img 
+							:src="langage.langage" 
+							class="w-12"
+						>
 						<img 
 							v-for="n in langage.like"
 							:key="n"
-							src="@/assets/images/heart-fill-custom.svg" 
-							class="w-4 ml-1"
+							src="@/assets/images/star.svg" 
+							class="w-4 h-4 ml-1"
 						>
 				</li>
 			</ul>
