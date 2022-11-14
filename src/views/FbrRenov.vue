@@ -49,11 +49,13 @@ export default {
 						id: 3,
 						title: 'Website',
 						details: 'https://fbr-renovation.fr/',
+						link: 'https://fbr-renovation.fr/',
 					},
 					{
 						id: 4,
 						title: 'Tel',
 						details: '0628771225',
+						link: 'tel:0628771225',
 					},
 				],
 				objectivesHeading: 'Objectif',
