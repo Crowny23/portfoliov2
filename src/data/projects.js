@@ -7,8 +7,15 @@ const projects = [
 		title: 'Fbr rénovation',
 		category: 'Web Application',
 		img: require('@/assets/images/fbr/web-projet.png'),
-		link: 'fbr-renov'
+		link: 'fbr-renov',
 	},
+	{
+		id: 2,
+		title: 'Moviap',
+		category: 'Web Application',
+		img: require('@/assets/images/moviap/react-vue-2.png'),
+		link: 'moviap',
+	}
 ];
 
 export default projects;

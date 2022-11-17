@@ -38,6 +38,7 @@ export default {
 									? 'hover:underline cursor-pointer'
 									: ''
 							"
+							target="_blank"
 							aria-label="Project Website and Phone"
 							>{{ info.details }}</a
 						>
